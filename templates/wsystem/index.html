@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      {% load static %}
+       {% load static %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="{% static 'wsystem/favicon.ico' %}">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>登陆</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'wsystem/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'wsystem/css/bootstrap.min.css' %}" rel="stylesheet">
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'wsystem/css/signin.css' %}" rel="stylesheet">
+      <link href="{% static 'wsystem/css/index.css' %}" rel="stylesheet">
 
   </head>
 
@@ -25,20 +27,24 @@
     <div class="container">
 
       <form class="form-signin" action="{% url 'wsystem:signin' %}" method="post">
-          {% csrf_token %}
-        <h2 class="form-signin-heading">送水系统登录</h2>
-
-
-
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="inputEmail">
-        <label for="inputPassword" class="sr-only">Password</label>
+        <h2 id="head_form">送水系统登录</h2>
+         {% csrf_token %}
+        
+        <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus name="inputUsername">
+        <br>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="inputPassword">
-        <button class="btn btn-lg btn-primary btn-block" type="submit" value="signin">Sign in</button>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="signin">登陆</button>
       </form>
 
     </div> <!-- /container -->
 
-
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'wsystem/css/bootstrap.min.css' %}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'wsystem/js/holder.min.js' %}"></script>
   </body>
 </html>

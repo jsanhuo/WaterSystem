@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'wsystem/favicon.ico' %}">
+
+    <title>重复订水</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'wsystem/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'wsystem/css/OrderList.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">订水管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">帮助</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+
+        <class class="col-12  main">
+          <h3 class="page-header" >订水失败</h3>
+
+          <h4 class="sub-header">原因：今天已经定过咱家水了</h4>
+          <h5>温馨提示：如果还是不能解决您的问题，人工客服将在8:00-16:00为您解决问题，给您带来的不变敬请谅解。</h5>
+          <br>
+          <button type="button" class="btn btn-secondary"><a href="{% url 'wsystem:orderlist' %}">返回上层</a></button>
+          <button type="button" class="btn btn-secondary"><a href="###">联系客服</a></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'wsystem/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

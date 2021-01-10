@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'wsystem/favicon.ico' %}">
+
+    <title>订水</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'wsystem/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'wsystem/css/addOrder.css' %}" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">订水管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">您好：{{ user }}</a></li>
+            <li><a href="#">设置</a></li>
+            <li><a href="#">我的</a></li>
+            <li><a href="#">帮助</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+          <h1 class="page-header">订水</h1>
+
+
+          <form action="{% url 'wsystem:addorderlist' %}" method="post">
+               {% csrf_token %}
+            <div class="form-group col-md-8">
+              <label for="wmodels">规格</label>
+              <input type="text" class="form-control" id="wmodels" name="wmodels" placeholder="大/小桶">
+            </div>
+            <div class="form-group col-md-8">
+              <label for="nums">数量</label>
+              <input type="text" class="form-control" id="nums" name="nums" placeholder="100">
+            </div>
+            <div class="form-group col-md-8">
+              <label for="money">金额</label>
+              <input type="text" class="form-control" id="money" name="money" placeholder="￥10000">
+            </div>
+            <div class="form-group col-md-8">
+              <label for="inputState">支付方式</label>
+              <select id="inputState" class="form-control" name="paymodels">
+                <option value ="pay" selected>支付宝</option>
+                <option value ="wechat">微信</option>
+                <option value="now">货到付款</option>
+              </select>
+            </div>
+            <div class="form-group col-md-8" >            
+              <button type="submit" value="addorder" class="btn btn-primary">提交</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'wsystem/js/bootstrap.min.js' %}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'wsystem/js/holder.min.js' %}"></script>
+  </body>
+</html>

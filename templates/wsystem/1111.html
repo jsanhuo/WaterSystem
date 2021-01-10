@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ user }}你好
+
+ <form  action="{% url 'wsystem:addorderlist' %}" method="post">
+          {% csrf_token %}
+        <h2>订水</h2>
+        <label>规格</label>
+        <input type="text" id="wmodels" name="wmodels">
+        <label>数量</label>
+        <input type="text" id="nums" name="nums">
+        <label>金额</label>
+        <input type="text" id="money" name="money">
+        <label>支付方式</label>
+        <select name="paymodels">
+                <option value ="pay">支付宝</option>
+                <option value ="wechat">微信</option>
+                <option value="now">货到付款</option>
+        </select>
+        <button  type="submit" value="addorder">提交</button>
+ </form>
+
+
+</body>
+</html>

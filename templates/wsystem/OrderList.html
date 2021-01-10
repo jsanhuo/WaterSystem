@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'wsystem/favicon.ico' %}">
+
+    <title>订水主页</title>
+
+    <!-- Bootstrap core CSS -->
+     <link href="{% static 'wsystem/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'wsystem/css/OrderList.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">订水管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">您好：{{ user }}</a></li>
+            <li><a href="#">设置</a></li>
+            <li><a href="#">我的</a></li>
+            <li><a href="#">帮助</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+
+        <class class="col-12  main">
+          <h1 class="page-header">商品列表</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="{% static 'wsystem/img/water_01.jpg' %}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>农夫山泉</h4>
+              <span class="text-muted">超甜</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="{% static 'wsystem/img/water_02.jpg' %}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>终南山泉</h4>
+              <span class="text-muted">好喝</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="{% static 'wsystem/img/water_03.jpg' %}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>哇哈哈</h4>
+              <span class="text-muted">纯净水</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="{% static 'wsystem/img/water_04.jpg' %}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>百岁山</h4>
+              <span class="text-muted">矿物质水</span>
+            </div>
+          </div>
+
+          <h2 class="sub-header">我的订单</h2>
+          <button type="button" class="btn btn-secondary"><a href="{% url 'wsystem:addorder' %}">添加订单</a></button>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>订单ID</th>
+                  <th>订单时间</th>
+                  <th>规格</th>
+                  <th>数量</th>
+                  <th>支付方式</th>
+                  <th>金额</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for e in list %}
+                <tr>
+                   <th>{{ e.id }}</th>
+                    <th>{{ e.time }}</th>
+                    <th>{{ e.wmodels }}</th>
+                    <th>{{ e.nums }}</th>
+                    <th>{{ e.paymodels }}</th>
+                    <th>{{ e.money }}</th>
+                </tr>
+               {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'wsystem/js/bootstrap.min.js' %}"></script>
+
+  </body>
+</html>
